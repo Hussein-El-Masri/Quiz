@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-pzjw8f+ua7Kw1TIqjQd4aNR2+Y2i8+QkchUJ4f23ZyjtB1mW1T1lI4zYY9Uq05sm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits or Legumes</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+        }
+
+        .wrapper {
+            width: 90%;
+            max-width: 1200px;
+            margin-top: 20px;
+        }
+
+        .header {
+            background-color: #09d1e3;
+            padding: 20px 30px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .header h1 {
+            font-size: 2em;
+            margin: 0;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+        }
+
+        .radio-group input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .buttons {
+            margin-left: auto;
+            display: flex;
+            gap: 10px;
+            height: 40px;
+        }
+
+       .btn-primary:hover {
+            background-color:white;
+            color: blue;
+        }
+        .btn-danger:hover {
+            background-color:white;
+            color: red;
+        }
+        .text {
+            width: 500px;
+            height: 30px;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+
+        .btn-primary {
+            background-color: blue;
+            color: white;
+            border: 2px solid;
+            border-radius: 10px;
+        }
+
+        .btn-danger {
+            background-color: red;
+            color: white;
+            border: 2px solid;
+            border-radius: 10px;
+        }
+
+        .btn-search {
+            background-color:rgb(19, 248, 248);
+            border-radius: 5px;
+            height: 40px;
+        }
+        .btn-search:hover {
+            background-color:black;
+            color: rgb(19, 248, 248);
+        }
+        .btn-delete:hover {
+            background-color:white;
+            color: red;
+        }
+
+        .btn-delete {
+            background-color: red;
+            color: white;
+            border-radius: 5px;
+            height: 40px;
+        }
+
+        .search-delete-group {
+            margin-top: 20px;
+            height: 590px;
+            align-items: center;
+            gap: 10px;
+            background-color: blue;
+            padding-left: 50px;
+            padding-top: 10px;
+        }
+
+        .container {
+            display: grid;
+            margin-right: 50px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+            height: 60%;
+        }
+
+        ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        li {
+            display: block;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        .list-column1 {
+            padding: 10px;
+            background-color: rgb(15, 224, 40);
+            border-radius: 10px;
+            color: #064e17;
+            box-shadow: 8px 8px rgba(0, 0, 0, 1);
+            transition: background-color 0.3s, color 0.3s;
+
+        }
+
+        .list-column1:hover {
+            background-color: #0e8e0e;
+            color: white;
+        }
+
+        .list-column1 li:hover {
+            background-color: blue;
+            color: white;
+        }
+        .list-column2 li:hover {
+            background-color: red;
+            color: white;
+        }
+
+        .list-column3 li:hover {
+            background-color: rgb(27, 22, 8);
+            color: white;
+        }
+
+        
+        .list-column2 {
+            padding: 10px;
+            background-color: rgb(15, 224, 40);
+            border-radius: 10px;
+            color: rgb(7, 14, 84);
+            box-shadow: 8px 8px rgba(0, 0, 0, 1);
+            transition: background-color 0.3s, color 0.3s;
+
+        }
+
+        .list-column3 {
+            padding: 10px;
+            background-color: rgb(15, 224, 40);
+            border-radius: 10px;
+            color: rgb(122, 88, 43);
+            box-shadow: 8px 8px rgba(0, 0, 0, 1);
+            transition: background-color 0.3s, color 0.3s;
+
+        }
+
+        .list-column1 li {
+            padding: 10px;
+            background-color: rgb(161, 159, 155);
+            border-radius: 5px;
+            color: #3d6a45;
+        }
+
+        .list-column2:hover {
+            background-color: #0e0e5e;
+            color: white;
+
+        }
+
+
+        .list-column2 li {
+            padding: 10px;
+            background-color: rgb(98, 103, 98);
+            border-radius: 5px;
+            color: #17214c;
+        }
+
+        .list-column3 li {
+            padding: 10px;
+            background-color: rgb(198, 149, 58);
+            border-radius: 5px;
+            color: burlywood;
+        }
+        .list-column3:hover {
+            background-color: #7b5a2b;
+            color: white;
+        }
+
+        .search-delete-group input[type="text"] {
+            width: 400px;
+        }
+
+        .search-delete-group .text1 {
+            margin-right: 10px;
+        }
+
+        .search-delete-group .btn-search,
+        .search-delete-group .btn-delete {
+            margin-right: 10px;
+        }
+
+        hr {
+            border: 5px;
+            height: 5px;
+            background-color: black;
+            box-shadow: 0 15px 15px rgba(0, 0, 0, 1);
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .text1 {
+            width: 300px;
+            height: 40px;
+            border: 2px solid white;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <input type="text" class="text" placeholder="Fruits or Legumes" id="itemInput">
+            <div class="radio-group">
+                <input type="radio" id="fruits" name="choice" value="fruits">
+<label for="fruits">Fruits</label>
+<input type="radio" id="legumes" name="choice" value="legumes">
+<label for="legumes">Legumes</label>
+
+            </div>
+            <div class="buttons">
+                <button class="btn-primary" onclick="addToSpecificList()">Add to Specific List</button>
+                <button class="btn-danger" onclick="addToGeneralList()">Add to General List</button>
+            </div>
+        </div>
+
+        <div class="search-delete-group">
+            <button class="btn-search" onclick="searchItems()">Search for item</button>
+            <button class="btn-delete"onclick="deleteHighlightedItems()">Delete an item</button>
+            <input type="text" class="text1" placeholder="Search for a fruit or legume" id="searchInput">
+            <hr>
+            <div class="container">
+                <div class="list-column1">
+                    <h3>List of Fruits</h3>
+                    <ul>
+                        <li>Fruits!-Apple</li>
+                        <li>Fruits!-Mangoes</li>
+                    </ul>
+                </div>
+                <div class="list-column2">
+                    <h3>List of Fruits and Legumes</h3>
+                    <ul>
+                        <li>Fruits!-Pineapples</li>
+                        <li>Fruits!-Bananas</li>
+                        <li>Legumes!-Potato</li>
+                        <li>Legumes!-Lentills</li>
+                    </ul>
+                </div>
+                <div class="list-column3">
+                    <h3>List of Legumes</h3>
+                    <ul>
+                        <li>Legumes!-Brocoli</li>
+                        <li>Legumes!-Green Beans</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function addToSpecificList() {
+            var itemInput = document.getElementById('itemInput').value;
+            var itemType;
+            var radios = document.getElementsByName('choice');
+            for (var i = 0; i < radios.length; i++) {
+                if (radios[i].checked) {
+                    itemType = radios[i].value;
+                    break;
+                }
+            }
+    
+            if (itemInput.trim() !== '' && itemType !== undefined) {
+                var listElement;
+                if (itemType === 'fruits') {
+                    listElement = document.querySelector('.list-column1 ul');
+                    itemInput = 'Fruits!-' + itemInput;
+                } else if (itemType === 'legumes') {
+                    listElement = document.querySelector('.list-column3 ul');
+                    itemInput = 'Legumes!-' + itemInput;
+                }
+    
+                var newItem = document.createElement('li');
+                newItem.textContent = itemInput;
+                listElement.appendChild(newItem);
+            } else {
+                alert('Please enter an item and select its type.');
+            }
+        }
+    </script>
+    <script>
+    function addToGeneralList() {
+        var itemInput = document.getElementById('itemInput').value;
+        var radios = document.getElementsByName('choice');
+        var listElement = document.querySelector('.list-column2 ul'); 
+
+        for (var i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                if (radios[i].value === 'fruits' || radios[i].value === 'legumes') {
+                    itemInput = radios[i].value === 'fruits' ? 'Fruits!-' + itemInput : 'Legumes!-' + itemInput;
+                    break;
+                }
+            }
+        }
+
+        if (itemInput.trim() !== '') {
+            var newItem = document.createElement('li');
+            newItem.textContent = itemInput;
+            listElement.appendChild(newItem);
+        } else {
+            alert('Please enter an item.');
+        }
+    }
+</script>
+<script>
+    function searchItems() {
+        var searchText = document.getElementById('searchInput').value.toLowerCase();
+        var listItems = document.querySelectorAll('.list-column1 li, .list-column2 li, .list-column3 li');
+
+        listItems.forEach(function(item) {
+            var itemText = item.textContent.toLowerCase();
+            if (itemText.includes(searchText)) {
+                item.classList.add('marked-for-deletion');
+                item.style.backgroundColor = 'red';
+                item.style.color = 'white';
+            } else {
+                item.classList.remove('marked-for-deletion');
+                item.style.backgroundColor = '';
+                item.style.color = '';
+            }
+        });
+    }
+</script>
+
+<script>
+    function deleteHighlightedItems() {
+        var markedItems = document.querySelectorAll('.marked-for-deletion');
+        markedItems.forEach(function(item) {
+            item.remove();
+        });
+    }
+</script>
+
+    
+    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqjQd4aNR2+Y2i8+QkchUJ4f23ZyjtB1mW1T1lI4zYY9Uq05sm" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-pzjw8f+ua7Kw1TIqjQd4aNR2+Y2i8+QkchUJ4f23ZyjtB1mW1T1lI4zYY9Uq05sm" crossorigin="anonymous"></script>
+</body>
+</html>
